@@ -19,12 +19,16 @@ public class Order {
 
     private Market market;
 
-    public Order(UUID id, OrderStatus status, OrderItems orderItems, Customer customer, Market market) {
+    private Order(UUID id, OrderStatus status, OrderItems orderItems, Customer customer, Market market) {
         this.id = id;
         this.status = status;
         this.orderItems = orderItems;
         this.customer = customer;
         this.market = market;
+    }
+
+    public static Order of(OrderStatus status, OrderItems orderItems, Customer customer, Market market) {
+        return new Order(UUID.randomUUID(), status, orderItems, customer, market);
     }
 
     public static Order create(OrderCreateCommand command) {

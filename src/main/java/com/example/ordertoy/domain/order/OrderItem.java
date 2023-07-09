@@ -4,10 +4,12 @@ import com.example.ordertoy.domain.market.Food;
 import com.example.ordertoy.domain.market.Market;
 import lombok.Getter;
 
+import java.util.UUID;
+
 @Getter
 public class OrderItem {
 
-    private Long id;
+    private UUID id;
 
     private Food food;
 
@@ -15,10 +17,14 @@ public class OrderItem {
 
     private Market market;
 
-    public OrderItem(Long id, Food food, int count, Market market) {
+    private OrderItem(UUID id, Food food, int count, Market market) {
         this.id = id;
         this.food = food;
         this.count = count;
         this.market = market;
+    }
+
+    public static OrderItem of(Food food, int count, Market market) {
+        return new OrderItem(UUID.randomUUID(), food, count, market);
     }
 }
