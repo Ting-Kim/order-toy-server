@@ -22,7 +22,7 @@ public class Food {
         this.averageMinuteRequired = averageMinuteRequired;
     }
 
-    public static Food of(UUID id, String name, int price, int averageMinuteRequired) {
+    public static Food of(String name, int price, int averageMinuteRequired) {
         return new Food(UUID.randomUUID(), name, price, averageMinuteRequired);
     }
 }
