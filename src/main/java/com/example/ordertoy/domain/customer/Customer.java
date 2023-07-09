@@ -1,4 +1,4 @@
-package com.example.ordertoy.customer;
+package com.example.ordertoy.domain.customer;
 
 import lombok.Getter;
 

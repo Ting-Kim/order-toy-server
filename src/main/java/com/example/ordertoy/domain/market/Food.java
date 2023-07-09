@@ -1,4 +1,4 @@
-package com.example.ordertoy.market;
+package com.example.ordertoy.domain.market;
 
 public class Food {
 

@@ -1,4 +1,4 @@
-package com.example.ordertoy.order;
+package com.example.ordertoy.domain.order;
 
 public enum OrderStatus {
 
