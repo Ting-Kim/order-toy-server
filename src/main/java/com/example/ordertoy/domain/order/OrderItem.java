@@ -9,22 +9,22 @@ import java.util.UUID;
 @Getter
 public class OrderItem {
 
-    private UUID id;
+  private UUID id;
 
-    private Food food;
+  private Food food;
 
-    private int count;
+  private int count;
 
-    private Market market;
+  private Market market;
 
-    private OrderItem(UUID id, Food food, int count, Market market) {
-        this.id = id;
-        this.food = food;
-        this.count = count;
-        this.market = market;
-    }
+  private OrderItem(UUID id, Food food, int count, Market market) {
+    this.id = id;
+    this.food = food;
+    this.count = count;
+    this.market = market;
+  }
 
-    public static OrderItem of(Food food, int count, Market market) {
-        return new OrderItem(UUID.randomUUID(), food, count, market);
-    }
+  public static OrderItem of(Food food, int count, Market market) {
+    return new OrderItem(UUID.randomUUID(), food, count, market);
+  }
 }

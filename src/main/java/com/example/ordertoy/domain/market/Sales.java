@@ -19,6 +19,8 @@ public class Sales {
   }
 
   public static Sales create(List<Food> foods) {
-    return new Sales(foods.stream().map(FoodSale::create).collect(Collectors.toList()), 0);
+    return new Sales(foods.stream()
+                          .map(FoodSale::create)
+                          .collect(Collectors.toList()), 0);
   }
 }
