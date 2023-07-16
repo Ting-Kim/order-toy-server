@@ -12,8 +12,10 @@ public class DeliveryPolicy {
 
   private List<DeliveryArea> availableDeliveryAreas;
 
-  private DeliveryPolicy(int minimumOrderPrice, List<DeliveryTipStandard> deliveryTipStandards,
-      List<DeliveryArea> availableDeliveryAreas) {
+  private DeliveryPolicy(
+      int minimumOrderPrice, List<DeliveryTipStandard> deliveryTipStandards,
+      List<DeliveryArea> availableDeliveryAreas
+  ) {
     this.minimumOrderPrice = minimumOrderPrice;
     this.deliveryTipStandards = deliveryTipStandards;
     this.availableDeliveryAreas = availableDeliveryAreas;
@@ -25,8 +27,10 @@ public class DeliveryPolicy {
                               deliveryAreas);
   }
 
-  public static DeliveryPolicy of(int minimumOrderPrice,
-      List<DeliveryTipStandard> deliveryTipStandards, List<DeliveryArea> deliveryAreas) {
+  public static DeliveryPolicy of(
+      int minimumOrderPrice,
+      List<DeliveryTipStandard> deliveryTipStandards, List<DeliveryArea> deliveryAreas
+  ) {
     return new DeliveryPolicy(minimumOrderPrice, deliveryTipStandards, deliveryAreas);
   }
 }
