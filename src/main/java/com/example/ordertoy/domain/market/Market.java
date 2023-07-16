@@ -34,7 +34,8 @@ public class Market {
       String name, String address, List<Food> foods, int minimumOrderPrice,
       List<DeliveryArea> availableDeliverryAreas
   ) {
-    return new Market(UUID.randomUUID(), name, address, Sales.create(foods),
-                      DeliveryPolicy.of(minimumOrderPrice, availableDeliverryAreas));
+    UUID id = UUID.randomUUID();
+    return new Market(id, name, address, Sales.create(id, foods),
+                      DeliveryPolicy.create(id, minimumOrderPrice, availableDeliverryAreas));
   }
 }

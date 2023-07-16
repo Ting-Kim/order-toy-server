@@ -7,15 +7,19 @@ import lombok.Getter;
 @Getter
 public class OrderCreateCommand {
 
-  OrderItems orderItems;
+  private OrderItems orderItems;
 
-  Customer customer;
+  private Customer customer;
 
-  Market market;
+  private DeliveryAddress deliveryAddress;
 
-  public OrderCreateCommand(OrderItems orderItems, Customer customer, Market market) {
+  private Market market;
+
+  public OrderCreateCommand(OrderItems orderItems, Customer customer,
+                            DeliveryAddress deliveryAddress, Market market) {
     this.orderItems = orderItems;
     this.customer = customer;
+    this.deliveryAddress = deliveryAddress;
     this.market = market;
   }
 }

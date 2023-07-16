@@ -17,18 +17,21 @@ public class Order {
 
     private Customer customer;
 
+    private DeliveryAddress deliveryAddress;
+
     private Market market;
 
-    private Order(UUID id, OrderStatus status, OrderItems orderItems, Customer customer, Market market) {
+    private Order(UUID id, OrderStatus status, OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
         this.id = id;
         this.status = status;
         this.orderItems = orderItems;
         this.customer = customer;
+        this.deliveryAddress = deliveryAddress;
         this.market = market;
     }
 
-    public static Order of(OrderStatus status, OrderItems orderItems, Customer customer, Market market) {
-        return new Order(UUID.randomUUID(), status, orderItems, customer, market);
+    public static Order of(OrderStatus status, OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
+        return new Order(UUID.randomUUID(), status, orderItems, customer, deliveryAddress, market);
     }
 
     public static Order create(OrderCreateCommand command) {
@@ -37,6 +40,7 @@ public class Order {
                 OrderStatus.CHECKING,
                 command.getOrderItems(),
                 command.getCustomer(),
+                command.getDeliveryAddress(),
                 command.getMarket());
     }
 }

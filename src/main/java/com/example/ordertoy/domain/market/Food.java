@@ -9,20 +9,27 @@ public class Food {
 
   private UUID id;
 
+  private UUID marketId;
+
   private String name;
 
   private int price;
 
   private int averageMinuteRequired;
 
-  private Food(UUID id, String name, int price, int averageMinuteRequired) {
+  private Food(UUID id, UUID marketId, String name, int price, int averageMinuteRequired) {
     this.id = id;
+    this.marketId = marketId;
     this.name = name;
     this.price = price;
     this.averageMinuteRequired = averageMinuteRequired;
   }
 
-  public static Food of(String name, int price, int averageMinuteRequired) {
-    return new Food(UUID.randomUUID(), name, price, averageMinuteRequired);
+  public static Food of(UUID id, UUID marketId, String name, int price, int averageMinuteRequired) {
+    return new Food(id, marketId, name, price, averageMinuteRequired);
+  }
+
+  public static Food create(UUID marketId, String name, int price, int averageMinuteRequired) {
+    return new Food(UUID.randomUUID(), marketId, name, price, averageMinuteRequired);
   }
 }
