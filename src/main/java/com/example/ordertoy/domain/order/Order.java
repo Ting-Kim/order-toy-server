@@ -43,4 +43,11 @@ public class Order {
                 command.getDeliveryAddress(),
                 command.getMarket());
     }
+
+    public void validate() { // TODO: Test 코드 작성 필요
+        // 도메인 서비스에서 고객 주소 검증
+        market.validateIsNotBlackCustomer(customer);
+        market.validateIsAvailableDeliveryAddress(deliveryAddress);
+        // TODO: 미구현 사항 보충 필요
+    }
 }
