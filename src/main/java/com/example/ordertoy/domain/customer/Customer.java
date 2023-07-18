@@ -14,20 +14,20 @@ public class Customer {
 
   private Membership membership;
 
-  private Addresses addresses;
+  private CustomerAddresses customerAddresses;
 
-  private Customer(UUID id, String name, Membership membership, Addresses addresses) {
+  private Customer(UUID id, String name, Membership membership, CustomerAddresses customerAddresses) {
     this.id = id;
     this.name = name;
     this.membership = membership;
-    this.addresses = addresses;
+    this.customerAddresses = customerAddresses;
   }
 
-  public static Customer of(String name, Membership membership, List<Address> addresses) {
-    return new Customer(UUID.randomUUID(), name, membership, Addresses.from(addresses));
+  public static Customer of(String name, Membership membership, List<CustomerAddress> customerAddresses) {
+    return new Customer(UUID.randomUUID(), name, membership, CustomerAddresses.from(customerAddresses));
   }
 
   public static Customer create(String name) {
-    return new Customer(UUID.randomUUID(), name, Membership.create(), Addresses.from(List.of()));
+    return new Customer(UUID.randomUUID(), name, Membership.create(), CustomerAddresses.from(List.of()));
   }
 }

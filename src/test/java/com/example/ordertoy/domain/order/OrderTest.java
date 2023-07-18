@@ -1,7 +1,6 @@
 package com.example.ordertoy.domain.order;
 
 import com.example.ordertoy.domain.customer.Customer;
-import com.example.ordertoy.domain.customer.ZipCode;
 import com.example.ordertoy.domain.market.BlackCustomers;
 import com.example.ordertoy.domain.market.DeliveryArea;
 import com.example.ordertoy.domain.market.Food;
@@ -35,7 +34,7 @@ class OrderTest {
                                                       blackConsumer,
                                                       DeliveryAddress.of("판교로 10번길 56",
                                                                          "이편한세상 101동 1503호",
-                                                                         ZipCode.from("09622")),
+                                                                         DeliveryAddress.ZipCode.from("09622")),
                                                       blueChicken));
 
     // when & then
