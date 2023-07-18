@@ -7,7 +7,7 @@ import lombok.Getter;
 public class ZipCode {
 
   public static final Pattern ZIP_CODE_PATTERN = Pattern.compile("\\d{5}");
-  public static final Pattern SEOUL_ZIP_CODE_CONDITION = Pattern.compile("\\b(0[1-9])\\b");
+  public static final Pattern SEOUL_ZIP_CODE_CONDITION = Pattern.compile("\\b(0[1-9])*");
 
   private String value;
 
