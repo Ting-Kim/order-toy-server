@@ -1,0 +1,21 @@
+package com.example.ordertoy.domain.order.service;
+
+import com.example.ordertoy.domain.order.Order;
+import com.example.ordertoy.domain.order.OrderCreateCommand;
+import com.example.ordertoy.domain.order.OrderStatus;
+import com.example.ordertoy.domain.order.event.OrderDomainEvent;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
+public class OrderCommandService {
+
+  public Order createOrder(OrderCreateCommand command) {
+    return Order.create(OrderStatus.CHECKING,
+                        command.getOrderItems(),
+                        command.getCustomer(),
+                        command.getDeliveryAddress(),
+                        command.getMarket());
+  }
+}

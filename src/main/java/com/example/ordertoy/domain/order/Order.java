@@ -30,18 +30,12 @@ public class Order {
         this.market = market;
     }
 
-    public static Order of(OrderStatus status, OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
-        return new Order(UUID.randomUUID(), status, orderItems, customer, deliveryAddress, market);
+    public static Order of(UUID id, OrderStatus status, OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
+        return new Order(id, status, orderItems, customer, deliveryAddress, market);
     }
 
-    public static Order create(OrderCreateCommand command) {
-        return new Order(
-                UUID.randomUUID(),
-                OrderStatus.CHECKING,
-                command.getOrderItems(),
-                command.getCustomer(),
-                command.getDeliveryAddress(),
-                command.getMarket());
+    public static Order create(OrderStatus status, OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
+        return new Order(UUID.randomUUID(), status, orderItems, customer, deliveryAddress, market);
     }
 
     public void validate() { // TODO: Test 코드 작성 필요
