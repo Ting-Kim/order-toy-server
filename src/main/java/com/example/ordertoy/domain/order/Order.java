@@ -34,8 +34,8 @@ public class Order {
         return new Order(id, status, orderItems, customer, deliveryAddress, market);
     }
 
-    public static Order create(OrderStatus status, OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
-        return new Order(UUID.randomUUID(), status, orderItems, customer, deliveryAddress, market);
+    public static Order create(OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
+        return new Order(UUID.randomUUID(), OrderStatus.CHECKING, orderItems, customer, deliveryAddress, market);
     }
 
     public void validate() { // TODO: Test 코드 작성 필요

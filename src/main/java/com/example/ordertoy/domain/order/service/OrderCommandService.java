@@ -12,8 +12,7 @@ import org.springframework.stereotype.Component;
 public class OrderCommandService {
 
   public Order createOrder(OrderCreateCommand command) {
-    return Order.create(OrderStatus.CHECKING,
-                        command.getOrderItems(),
+    return Order.create(command.getOrderItems(),
                         command.getCustomer(),
                         command.getDeliveryAddress(),
                         command.getMarket());
