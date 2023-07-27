@@ -2,8 +2,6 @@ package com.example.ordertoy.domain.order.service;
 
 import com.example.ordertoy.domain.order.Order;
 import com.example.ordertoy.domain.order.OrderCreateCommand;
-import com.example.ordertoy.domain.order.OrderStatus;
-import com.example.ordertoy.domain.order.event.OrderDomainEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
