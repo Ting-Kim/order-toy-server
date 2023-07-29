@@ -31,8 +31,8 @@ public abstract class Address {
   @Getter
   protected static class ZipCode {
 
-    public static final Pattern ZIP_CODE_PATTERN = Pattern.compile("\\d{5}");
-    public static final Pattern SEOUL_ZIP_CODE_CONDITION = Pattern.compile("\\b(0[1-9])*");
+    public static final Pattern ZIP_CODE_PATTERN = Pattern.compile("\\b(0[1-9]|[1-5][0-9]|6[0-3])\\d{3}\\b");
+    public static final Pattern SEOUL_ZIP_CODE_CONDITION = Pattern.compile("\\b(0[1-9])\\d{3}\\b");
 
     private String value;
 
@@ -43,7 +43,7 @@ public abstract class Address {
     public static ZipCode from(String value) {
       if (!ZIP_CODE_PATTERN.matcher(value)
                            .find()) {
-        throw new IllegalArgumentException("우편번호는 5자리 숫자로 구성되어야 합니다.");
+        throw new IllegalArgumentException("규격 외 우편번호는 생성할 수 없습니다.");
       }
       if (!SEOUL_ZIP_CODE_CONDITION.matcher(value)
                                    .find()) {
