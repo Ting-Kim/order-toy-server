@@ -43,11 +43,11 @@ public class Market {
 
   public static Market create(
       String name, String address, List<Food> foods, int minimumOrderPrice,
-      List<DeliveryArea> availableDeliverryAreas, BlackCustomers blackCustomers
+      List<DeliveryArea> availableDeliveryAreas, BlackCustomers blackCustomers
   ) {
     UUID id = UUID.randomUUID();
     return new Market(id, name, address, Sales.create(id, foods),
-                      DeliveryPolicy.create(id, minimumOrderPrice, availableDeliverryAreas),
+                      DeliveryPolicy.create(id, minimumOrderPrice, availableDeliveryAreas),
                       blackCustomers);
   }
 

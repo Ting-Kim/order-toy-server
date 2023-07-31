@@ -1,19 +1,14 @@
 package com.example.ordertoy.domain.market;
 
-public enum DeliveryArea {
-  MOK1DONG("목1동"),
-  MOK2DONG("목2동"),
-  MOK3DONG("목3동"),
-  MOK4DONG("목4동"),
-  SINJUNG1DONG("신정1동"),
-  SINJUNG2DONG("신정2동"),
-  SINJUNG3DONG("신정3동"),
-  SINJUNG4DONG("신정4동"),
-  GURO1DONG("구로1동");
+public class DeliveryArea {
 
-  private String korName;
+  private String district;
 
-  DeliveryArea(String korName) {
-    this.korName = korName;
+  private DeliveryArea(String district) {
+    this.district = district;
+  }
+
+  public static DeliveryArea from(String district) {
+    return new DeliveryArea(district);
   }
 }

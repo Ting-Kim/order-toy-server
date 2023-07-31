@@ -19,13 +19,13 @@ class OrderItemsTest {
   void Should_ThrowException_WhenOrderItemsOfAnotherMarkets() {
     // given
     Market blueChicken = Market.create("파랑통닭", "판교로228번길 18 101호", Collections.emptyList(), 10000,
-                                       Lists.list(DeliveryArea.SINJUNG1DONG),
+                                       Lists.list(DeliveryArea.from("신정1동")),
                                        BlackCustomers.from(List.of()));
     Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
     Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
     Food coke = Food.create(blueChicken.getId(), "콜라", 3000, 5);
     Market papasTouch = Market.create("파파스터치", "판교로228번길 6 101호", Collections.emptyList(), 10000,
-                                      Lists.list(DeliveryArea.SINJUNG1DONG),
+                                      Lists.list(DeliveryArea.from("신정1동")),
                                       BlackCustomers.from(List.of()));
     OrderItem orderItem1 = OrderItem.of(chicken, 1, blueChicken);
     OrderItem orderItem2 = OrderItem.of(friedPotato, 1, papasTouch);
@@ -43,7 +43,7 @@ class OrderItemsTest {
   void Should_Pass_WhenOrderItemsOfSameMarkets() {
     // given
     Market blueChicken = Market.create("파랑통닭", "판교로228번길 18 101호", Collections.emptyList(), 10000,
-                                       Lists.list(DeliveryArea.SINJUNG1DONG),
+                                       Lists.list(DeliveryArea.from("신정1동")),
                                        BlackCustomers.from(List.of()));
     Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
     Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);

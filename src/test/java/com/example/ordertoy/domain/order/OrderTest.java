@@ -20,7 +20,7 @@ class OrderTest {
     // given
     Customer blackConsumer = Customer.create("Black");
     Market blueChicken = Market.create("파랑통닭", "판교로228번길 18 101호", Collections.emptyList(), 10000,
-                                       Lists.list(DeliveryArea.SINJUNG1DONG),
+                                       Lists.list(DeliveryArea.from("신정1동")),
                                        BlackCustomers.from(List.of(blackConsumer.getId())));
     Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
     Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
