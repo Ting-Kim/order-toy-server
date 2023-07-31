@@ -6,6 +6,8 @@ import lombok.Getter;
 @Getter
 public class DeliveryAddress {
 
+  private static final int IDX_DISTRICT_OF_ADDRESS = 2; // 시/구/동
+
   private String address;
 
   private String detailAddress;
@@ -20,6 +22,10 @@ public class DeliveryAddress {
 
   public static DeliveryAddress of(String address, String detailAddress, ZipCode zipCode) {
     return new DeliveryAddress(address, detailAddress, zipCode);
+  }
+
+  public String findDistrict() {
+    return address.split(" ")[IDX_DISTRICT_OF_ADDRESS];
   }
 
   @Getter
