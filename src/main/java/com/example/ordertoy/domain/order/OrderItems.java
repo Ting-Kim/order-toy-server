@@ -1,5 +1,6 @@
 package com.example.ordertoy.domain.order;
 
+import com.example.ordertoy.domain.market.Food;
 import lombok.Getter;
 
 import java.util.List;
@@ -20,7 +21,8 @@ public class OrderItems {
 
   private static void validate(List<OrderItem> orderItems) {
     long marketsCount = orderItems.stream()
-                                  .map(OrderItem::getMarket)
+                                  .map(OrderItem::getFood)
+                                  .map(Food::getMarketId)
                                   .distinct()
                                   .count();
     if (marketsCount > 1) {

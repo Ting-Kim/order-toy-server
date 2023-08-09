@@ -21,15 +21,15 @@ class OrderItemsTest {
     Market blueChicken = Market.create("파랑통닭", "판교로228번길 18 101호", Collections.emptyList(), 10000,
                                        Lists.list(DeliveryArea.from("신정1동")),
                                        BlackCustomers.from(List.of()));
-    Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
-    Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
-    Food coke = Food.create(blueChicken.getId(), "콜라", 3000, 5);
     Market papasTouch = Market.create("파파스터치", "판교로228번길 6 101호", Collections.emptyList(), 10000,
                                       Lists.list(DeliveryArea.from("신정1동")),
                                       BlackCustomers.from(List.of()));
-    OrderItem orderItem1 = OrderItem.of(chicken, 1, blueChicken);
-    OrderItem orderItem2 = OrderItem.of(friedPotato, 1, papasTouch);
-    OrderItem orderItem3 = OrderItem.of(coke, 3, blueChicken);
+    Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
+    Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
+    Food coke = Food.create(papasTouch.getId(), "콜라", 3000, 5);
+    OrderItem orderItem1 = OrderItem.of(chicken, 1);
+    OrderItem orderItem2 = OrderItem.of(friedPotato, 1);
+    OrderItem orderItem3 = OrderItem.of(coke, 3);
 
     // when & then
     Assertions.assertThatThrownBy(
@@ -48,9 +48,9 @@ class OrderItemsTest {
     Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
     Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
     Food coke = Food.create(blueChicken.getId(), "콜라", 3000, 5);
-    OrderItem orderItem1 = OrderItem.of(chicken, 1, blueChicken);
-    OrderItem orderItem2 = OrderItem.of(friedPotato, 1, blueChicken);
-    OrderItem orderItem3 = OrderItem.of(coke, 3, blueChicken);
+    OrderItem orderItem1 = OrderItem.of(chicken, 1);
+    OrderItem orderItem2 = OrderItem.of(friedPotato, 1);
+    OrderItem orderItem3 = OrderItem.of(coke, 3);
 
     // when & then
     Assertions.assertThat(OrderItems.from(List.of(orderItem1, orderItem2, orderItem3)))

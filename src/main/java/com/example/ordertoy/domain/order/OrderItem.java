@@ -15,16 +15,15 @@ public class OrderItem {
 
   private int count;
 
-  private Market market;
+  private Market market; // TODO: 필요 여부 체크
 
-  private OrderItem(UUID id, Food food, int count, Market market) {
+  public OrderItem(UUID id, Food food, int count) {
     this.id = id;
     this.food = food;
     this.count = count;
-    this.market = market;
   }
 
-  public static OrderItem of(Food food, int count, Market market) {
-    return new OrderItem(UUID.randomUUID(), food, count, market);
+  public static OrderItem of(Food food, int count) {
+    return new OrderItem(UUID.randomUUID(), food, count);
   }
 }
