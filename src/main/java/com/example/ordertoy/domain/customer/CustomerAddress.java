@@ -7,20 +7,22 @@ import lombok.Getter;
 @Getter
 public class CustomerAddress extends Address {
 
+  private String name;
   private UUID customerId;
 
   private CustomerAddress(UUID id, UUID customerId, String name, String content, String detail,
-                          ZipCode zipCode
+                          String zipCode
   ) {
-    super(id, name, content, detail, zipCode);
+    super(id, content, detail, zipCode);
+    this.name = name;
     this.customerId = customerId;
   }
 
-  public static CustomerAddress of(UUID id, UUID customerId, String name, String content, String detail, ZipCode zipCode) {
+  public static CustomerAddress of(UUID id, UUID customerId, String name, String content, String detail, String zipCode) {
     return new CustomerAddress(id, customerId, name, content, detail, zipCode);
   }
 
-  public static CustomerAddress create(UUID customerId, String name, String content, String detail, ZipCode zipCode) {
+  public static CustomerAddress create(UUID customerId, String name, String content, String detail, String zipCode) {
     return new CustomerAddress(UUID.randomUUID(), customerId, name, content, detail, zipCode);
   }
 }

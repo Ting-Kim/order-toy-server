@@ -14,7 +14,7 @@ public class Market {
 
   private String name;
 
-  private String address; // TODO: Address 객체화 필요
+  private MarketAddress address;
 
   private Sales sales;
 
@@ -23,7 +23,7 @@ public class Market {
   private BlackCustomers blackCustomers;
 
   private Market(
-      UUID id, String name, String address, Sales sales, DeliveryPolicy deliveryPolicy,
+      UUID id, String name, MarketAddress address, Sales sales, DeliveryPolicy deliveryPolicy,
       BlackCustomers blackCustomers
   ) {
     this.id = id;
@@ -35,14 +35,14 @@ public class Market {
   }
 
   public static Market of(
-      String name, String address, Sales sales, DeliveryPolicy deliveryPolicy,
+      String name, MarketAddress address, Sales sales, DeliveryPolicy deliveryPolicy,
       BlackCustomers blackCustomers
   ) {
     return new Market(UUID.randomUUID(), name, address, sales, deliveryPolicy, blackCustomers);
   }
 
   public static Market create(
-      String name, String address, List<Food> foods, int minimumOrderPrice,
+      String name, MarketAddress address, List<Food> foods, int minimumOrderPrice,
       List<DeliveryArea> availableDeliveryAreas, BlackCustomers blackCustomers
   ) {
     UUID id = UUID.randomUUID();

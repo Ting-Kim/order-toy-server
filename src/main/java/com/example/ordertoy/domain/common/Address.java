@@ -10,8 +10,6 @@ public abstract class Address {
 
   private UUID customerId;
 
-  private String name;
-
   private String content;
 
   private String detail;
@@ -19,13 +17,12 @@ public abstract class Address {
   private ZipCode zipCode;
 
   public Address(
-      UUID id, String name, String content, String detail, ZipCode zipCode
+      UUID id, String content, String detail, String zipCode
   ) {
     this.id = id;
-    this.name = name;
     this.content = content;
     this.detail = detail;
-    this.zipCode = zipCode;
+    this.zipCode = ZipCode.from(zipCode);
   }
 
   @Getter

@@ -9,18 +9,21 @@ public class MarketAddress extends Address {
 
   private UUID marketId;
 
-  private MarketAddress(UUID id, UUID marketId, String name, String content, String detail,
-                        ZipCode zipCode
+  private MarketAddress(UUID id, String content, String detail,
+                        String zipCode
   ) {
-    super(id, name, content, detail, zipCode);
+    super(id, content, detail, zipCode);
+  }
+
+  public static MarketAddress of(UUID id, String content, String detail, String zipCode) {
+    return new MarketAddress(id, content, detail, zipCode);
+  }
+
+  public static MarketAddress create(String content, String detail, String zipCode) {
+    return new MarketAddress(UUID.randomUUID(), content, detail, zipCode);
+  }
+
+  public void updateMarketId(UUID marketId) {
     this.marketId = marketId;
-  }
-
-  public static MarketAddress of(UUID id, UUID marketId, String name, String content, String detail, ZipCode zipCode) {
-    return new MarketAddress(id, marketId, name, content, detail, zipCode);
-  }
-
-  public static MarketAddress create(UUID marketId, String name, String content, String detail, ZipCode zipCode) {
-    return new MarketAddress(UUID.randomUUID(), marketId, name, content, detail, zipCode);
   }
 }

@@ -14,13 +14,13 @@ public class Customer {
 
   private Membership membership;
 
-  private CustomerAddresses customerAddresses;
+  private CustomerAddresses addresses;
 
-  private Customer(UUID id, String name, Membership membership, CustomerAddresses customerAddresses) {
+  private Customer(UUID id, String name, Membership membership, CustomerAddresses addresses) {
     this.id = id;
     this.name = name;
     this.membership = membership;
-    this.customerAddresses = customerAddresses;
+    this.addresses = addresses;
   }
 
   public static Customer of(String name, Membership membership, List<CustomerAddress> customerAddresses) {
