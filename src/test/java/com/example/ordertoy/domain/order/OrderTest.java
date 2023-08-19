@@ -30,14 +30,11 @@ class OrderTest {
     OrderItem orderItem1 = OrderItem.of(chicken, 1);
     OrderItem orderItem2 = OrderItem.of(friedPotato, 1);
     OrderItem orderItem3 = OrderItem.of(coke, 3);
-    Order order = Order.create(OrderItems.from(List.of(orderItem1,
-                                                       orderItem2,
-                                                       orderItem3)),
-                               blackConsumer,
-                               DeliveryAddress.of("판교로 10번길 56",
-                                                  "이편한세상 101동 1503호",
-                                                  DeliveryAddress.ZipCode.from("09622")),
-                               blueChicken);
+    Order order = Order.create(OrderItems.from(List.of(orderItem1, orderItem2, orderItem3)),
+                               blackConsumer, DeliveryAddress.of("판교로 10번길 56", "이편한세상 101동 1503호",
+                                                                 DeliveryAddress.ZipCode.from(
+                                                                     "09622")), blueChicken)
+                       .getSource();
 
     // when & then
     Assertions.assertThatThrownBy(() -> order.validate())

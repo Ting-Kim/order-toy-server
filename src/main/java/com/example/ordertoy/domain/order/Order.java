@@ -2,6 +2,7 @@ package com.example.ordertoy.domain.order;
 
 import com.example.ordertoy.domain.customer.Customer;
 import com.example.ordertoy.domain.market.Market;
+import com.example.ordertoy.domain.order.event.OrderCreatedEvent;
 import lombok.Getter;
 
 import java.util.UUID;
@@ -34,8 +35,8 @@ public class Order {
         return new Order(id, status, orderItems, customer, deliveryAddress, market);
     }
 
-    public static Order create(OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
-        return new Order(UUID.randomUUID(), OrderStatus.CHECKING, orderItems, customer, deliveryAddress, market);
+    public static OrderCreatedEvent create(OrderItems orderItems, Customer customer, DeliveryAddress deliveryAddress, Market market) {
+        return new OrderCreatedEvent(new Order(UUID.randomUUID(), OrderStatus.CHECKING, orderItems, customer, deliveryAddress, market));
     }
 
     public void validate() {
