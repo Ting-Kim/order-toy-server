@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConfigBasedEventWrapperFactory implements EventWrapperFactory {
 
-  private Map<Class<? extends DomainEvent<?>>, Function<BaseDomainWrappedEvent, DomainWrappedEvent<?>>> wrapperMappings;
+  private Map<Class<? extends DomainEvent<?>>, Function<BaseDomainWrappedEvent, DomainWrappedEvent<?>>> wrapperMappings
+      = new HashMap<>();;
 
   public ConfigBasedEventWrapperFactory(
       Map<Class<? extends DomainEvent<?>>, Function<BaseDomainWrappedEvent, DomainWrappedEvent<?>>> wrapperMappings
@@ -22,9 +23,7 @@ public class ConfigBasedEventWrapperFactory implements EventWrapperFactory {
   }
 
   @PostConstruct
-  void init() {
-    Map<Class<? extends DomainEvent<?>>, Function<BaseDomainWrappedEvent, DomainWrappedEvent<?>>> wrapperMappings =
-        new HashMap<>();
+  public void init() {
     wrapperMappings.put(OrderCreatedEvent.class, OrderCreatedWrappedEvent::from);
   }
 
