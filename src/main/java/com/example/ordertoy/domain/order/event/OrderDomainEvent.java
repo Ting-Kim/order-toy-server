@@ -5,4 +5,7 @@ import com.example.ordertoy.domain.order.Order;
 
 public interface OrderDomainEvent extends DomainEvent<Order> {
 
+  default String getAggregateType() {
+    return "ORDER";
+  }
 }
