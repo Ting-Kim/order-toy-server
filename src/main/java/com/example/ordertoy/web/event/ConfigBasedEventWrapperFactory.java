@@ -34,6 +34,6 @@ public class ConfigBasedEventWrapperFactory implements EventWrapperFactory {
     }
 
     return wrapperMappings.get(event.getClass())
-                          .apply(new BaseDomainWrappedEvent(actorId, UUID.randomUUID(), event));
+                          .apply(BaseDomainWrappedEvent.of(actorId, event));
   }
 }

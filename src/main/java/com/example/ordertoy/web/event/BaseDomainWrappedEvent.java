@@ -13,11 +13,15 @@ public class BaseDomainWrappedEvent implements DomainWrappedEvent {
 
   private DomainEvent<?> event;
 
-  public BaseDomainWrappedEvent(
+  private BaseDomainWrappedEvent(
       UUID actorId, UUID eventId, DomainEvent<?> event
   ) {
     this.actorId = actorId;
     this.eventId = eventId;
     this.event = event;
+  }
+
+  public static BaseDomainWrappedEvent of(UUID actorId, DomainEvent<?> event) {
+    return new BaseDomainWrappedEvent(actorId, UUID.randomUUID(), event);
   }
 }
