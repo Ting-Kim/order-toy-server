@@ -1,6 +1,5 @@
 package com.example.ordertoy.persistence.order;
 
-import com.example.ordertoy.domain.order.DeliveryAddress;
 import com.example.ordertoy.domain.order.OrderStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -29,7 +28,7 @@ public class OrderJpaEntity {
 
   @Embedded
   @Column(name = "delivery_address")
-  private DeliveryAddress deliveryAddress;
+  private EmbeddableDeliveryAddress deliveryAddress;
 
   @Column(name = "market_id")
   private UUID marketId;
@@ -40,7 +39,7 @@ public class OrderJpaEntity {
   }
 
   public OrderJpaEntity(
-      OrderStatus status, UUID customerId, DeliveryAddress deliveryAddress, UUID marketId
+      OrderStatus status, UUID customerId, EmbeddableDeliveryAddress deliveryAddress, UUID marketId
   ) {
     this.status = status;
     this.customerId = customerId;
