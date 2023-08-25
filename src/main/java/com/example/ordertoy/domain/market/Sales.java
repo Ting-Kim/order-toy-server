@@ -22,9 +22,17 @@ public class Sales {
     return new Sales(marketId, foodSales, totalSalesPrice);
   }
 
+  public static Sales of(UUID marketId, List<FoodSale> foodSales) {
+    return new Sales(marketId,
+                     foodSales,
+                     foodSales.stream()
+                              .map(FoodSale::calculateTotalPrice)
+                              .mapToInt(Integer::intValue)
+                              .sum());
+  }
+
   public static Sales create(UUID marketId, List<Food> foods) {
     return new Sales(marketId, foods.stream()
-                                    .map(Food::getId)
                                     .map(FoodSale::create)
                                     .collect(Collectors.toList()), 0);
   }

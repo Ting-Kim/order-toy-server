@@ -1,25 +1,28 @@
 package com.example.ordertoy.domain.market;
 
-import java.util.UUID;
 import lombok.Getter;
 
 @Getter
 public class FoodSale {
 
-  private UUID foodId;
+  private Food food;
 
   private int salesCount;
 
-  private FoodSale(UUID foodId, int salesCount) {
-    this.foodId = foodId;
+  private FoodSale(Food food, int salesCount) {
+    this.food = food;
     this.salesCount = salesCount;
   }
 
-  public static FoodSale of(UUID foodId, int salesCount) {
-    return new FoodSale(foodId, salesCount);
+  public static FoodSale of(Food food, int salesCount) {
+    return new FoodSale(food, salesCount);
   }
 
-  public static FoodSale create(UUID foodId) {
-    return new FoodSale(foodId, 0);
+  public static FoodSale create(Food food) {
+    return new FoodSale(food, 0);
+  }
+
+  public Integer calculateTotalPrice() {
+    return food.getPrice() * salesCount;
   }
 }
