@@ -5,6 +5,7 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.List;
 import java.util.UUID;
 import lombok.AccessLevel;
@@ -12,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "otoy_market")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MarketJpaEntity {
