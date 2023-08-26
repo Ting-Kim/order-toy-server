@@ -20,7 +20,7 @@ public class CustomerJpaEntity {
   @Column(name = "customer_id")
   private UUID id;
 
-  @Column(name = "customer_id")
+  @Column(name = "customer_name")
   private String name;
 
   @Embedded
