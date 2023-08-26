@@ -7,6 +7,8 @@ import java.util.UUID;
 @Getter
 public class Food {
 
+  public static final int INIT_AVERAGE_MINUTE_REQUIRED = 30;
+
   private UUID id;
 
   private UUID marketId;

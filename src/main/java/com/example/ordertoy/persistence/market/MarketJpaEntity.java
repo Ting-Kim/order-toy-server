@@ -52,6 +52,6 @@ public class MarketJpaEntity {
       EmbeddableMarketAddress address,
       List<UUID> blackCustomerIds
   ) {
-    return new MarketJpaEntity(null, name, address, blackCustomerIds);
+    return new MarketJpaEntity(UUID.randomUUID(), name, address, blackCustomerIds);
   }
 }
