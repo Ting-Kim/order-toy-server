@@ -1,5 +1,6 @@
 package com.example.ordertoy.persistence.customer;
 
+import com.example.ordertoy.domain.customer.Grade;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -26,6 +27,17 @@ public class CustomerJpaEntity {
   @Embedded
   EmbeddedMembership membership;
 
-  @Embedded
-  EmbeddableCustomerAddress address;
+  public CustomerJpaEntity(UUID id, String name, EmbeddedMembership membership) {
+    this.id = id;
+    this.name = name;
+    this.membership = membership;
+  }
+
+  public Grade getMembershipGrade() {
+    return membership.getGrade();
+  }
+
+  public Integer getMembershipPoint() {
+    return membership.getPoint();
+  }
 }

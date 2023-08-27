@@ -3,8 +3,10 @@ package com.example.ordertoy.persistence.customer;
 import com.example.ordertoy.domain.customer.Grade;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 
 @Embeddable
+@Getter
 public class EmbeddedMembership {
 
   @Column(name = "membership_grade")

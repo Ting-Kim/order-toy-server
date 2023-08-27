@@ -35,10 +35,10 @@ public class Market {
   }
 
   public static Market of(
-      String name, MarketAddress address, Sales sales, DeliveryPolicy deliveryPolicy,
+      UUID id, String name, MarketAddress address, Sales sales, DeliveryPolicy deliveryPolicy,
       BlackCustomers blackCustomers
   ) {
-    return new Market(UUID.randomUUID(), name, address, sales, deliveryPolicy, blackCustomers);
+    return new Market(id, name, address, sales, deliveryPolicy, blackCustomers);
   }
 
   public static Market create(

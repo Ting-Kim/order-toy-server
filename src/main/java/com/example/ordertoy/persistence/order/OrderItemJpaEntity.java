@@ -18,6 +18,8 @@ public class OrderItemJpaEntity {
   @Id
   private UUID id;
 
+  private UUID marketId;
+
   private UUID foodId;
 
   private Integer count;
@@ -27,7 +29,8 @@ public class OrderItemJpaEntity {
     this.id = UUID.randomUUID();
   }
 
-  public OrderItemJpaEntity(UUID foodId, Integer count) {
+  public OrderItemJpaEntity(UUID marketId, UUID foodId, Integer count) {
+    this.marketId = marketId;
     this.foodId = foodId;
     this.count = count;
   }

@@ -11,19 +11,23 @@ public class OrderItem {
 
   private UUID id;
 
+  private UUID marketId;
+
   private Food food;
 
   private int count;
 
-  private Market market; // TODO: 필요 여부 체크
-
-  public OrderItem(UUID id, Food food, int count) {
+  private OrderItem(UUID id, UUID marketId, Food food, int count) {
     this.id = id;
     this.food = food;
     this.count = count;
   }
 
-  public static OrderItem of(Food food, int count) {
-    return new OrderItem(UUID.randomUUID(), food, count);
+  public static OrderItem of(UUID id, UUID marketId, Food food, int count) {
+    return new OrderItem(id, marketId, food, count);
+  }
+
+  public static OrderItem create(UUID marketId, Food food, int count) {
+    return new OrderItem(UUID.randomUUID(), marketId, food, count);
   }
 }

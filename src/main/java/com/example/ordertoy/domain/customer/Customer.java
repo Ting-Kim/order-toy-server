@@ -23,8 +23,8 @@ public class Customer {
     this.addresses = addresses;
   }
 
-  public static Customer of(String name, Membership membership, List<CustomerAddress> customerAddresses) {
-    return new Customer(UUID.randomUUID(), name, membership, CustomerAddresses.from(customerAddresses));
+  public static Customer of(UUID id, String name, Membership membership, List<CustomerAddress> customerAddresses) {
+    return new Customer(id, name, membership, CustomerAddresses.from(customerAddresses));
   }
 
   public static Customer create(String name) {

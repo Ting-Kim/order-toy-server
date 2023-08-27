@@ -2,7 +2,6 @@ package com.example.ordertoy.persistence.market;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -25,35 +24,29 @@ public class MarketJpaEntity {
   @Column(name = "market_name")
   private String name;
 
-  @Embedded
-  private EmbeddableMarketAddress address;
-
   @ElementCollection
   private List<UUID> blackCustomerIds;
 
   private MarketJpaEntity(
-      UUID id, String name, EmbeddableMarketAddress address, List<UUID> blackCustomerIds
+      UUID id, String name, List<UUID> blackCustomerIds
   ) {
     this.id = id;
     this.name = name;
-    this.address = address;
     this.blackCustomerIds = blackCustomerIds;
   }
 
   public static MarketJpaEntity of(
       UUID id,
       String name,
-      EmbeddableMarketAddress address,
       List<UUID> blackCustomerIds
   ) {
-    return new MarketJpaEntity(id, name, address, blackCustomerIds);
+    return new MarketJpaEntity(id, name, blackCustomerIds);
   }
 
   public static MarketJpaEntity create(
       String name,
-      EmbeddableMarketAddress address,
       List<UUID> blackCustomerIds
   ) {
-    return new MarketJpaEntity(UUID.randomUUID(), name, address, blackCustomerIds);
+    return new MarketJpaEntity(UUID.randomUUID(), name, blackCustomerIds);
   }
 }

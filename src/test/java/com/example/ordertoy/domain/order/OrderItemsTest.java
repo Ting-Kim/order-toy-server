@@ -30,9 +30,9 @@ class OrderItemsTest {
     Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
     Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
     Food coke = Food.create(papasTouch.getId(), "콜라", 3000, 5);
-    OrderItem orderItem1 = OrderItem.of(chicken, 1);
-    OrderItem orderItem2 = OrderItem.of(friedPotato, 1);
-    OrderItem orderItem3 = OrderItem.of(coke, 3);
+    OrderItem orderItem1 = OrderItem.create(blueChicken.getId(), chicken, 1);
+    OrderItem orderItem2 = OrderItem.create(blueChicken.getId(), friedPotato, 1);
+    OrderItem orderItem3 = OrderItem.create(papasTouch.getId(), coke, 3);
 
     // when & then
     Assertions.assertThatThrownBy(
@@ -52,9 +52,9 @@ class OrderItemsTest {
     Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
     Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
     Food coke = Food.create(blueChicken.getId(), "콜라", 3000, 5);
-    OrderItem orderItem1 = OrderItem.of(chicken, 1);
-    OrderItem orderItem2 = OrderItem.of(friedPotato, 1);
-    OrderItem orderItem3 = OrderItem.of(coke, 3);
+    OrderItem orderItem1 = OrderItem.create(blueChicken.getId(), chicken, 1);
+    OrderItem orderItem2 = OrderItem.create(blueChicken.getId(), friedPotato, 1);
+    OrderItem orderItem3 = OrderItem.create(blueChicken.getId(), coke, 3);
 
     // when & then
     Assertions.assertThat(OrderItems.from(List.of(orderItem1, orderItem2, orderItem3)))

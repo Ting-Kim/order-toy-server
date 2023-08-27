@@ -8,6 +8,7 @@ import lombok.Getter;
 public class CustomerAddress extends Address {
 
   private String name;
+
   private UUID customerId;
 
   private CustomerAddress(UUID id, UUID customerId, String name, String content, String detail,
