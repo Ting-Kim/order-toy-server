@@ -32,8 +32,7 @@ class OrderTest {
     OrderItem orderItem3 = OrderItem.create(blueChicken.getId(), coke, 3);
     Order order = Order.create(OrderItems.from(List.of(orderItem1, orderItem2, orderItem3)),
                                blackConsumer, DeliveryAddress.of("판교로 10번길 56", "이편한세상 101동 1503호",
-                                                                 DeliveryAddress.ZipCode.from(
-                                                                     "09622")), blueChicken)
+                                                                 "09622"), blueChicken)
                        .getSource();
 
     // when & then

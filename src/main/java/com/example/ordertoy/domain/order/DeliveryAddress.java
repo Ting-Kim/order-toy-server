@@ -20,8 +20,8 @@ public class DeliveryAddress {
     this.zipCode = zipCode;
   }
 
-  public static DeliveryAddress of(String address, String detailAddress, ZipCode zipCode) {
-    return new DeliveryAddress(address, detailAddress, zipCode);
+  public static DeliveryAddress of(String address, String detailAddress, String zipCode) {
+    return new DeliveryAddress(address, detailAddress, ZipCode.from(zipCode));
   }
 
   public String findDistrict() {

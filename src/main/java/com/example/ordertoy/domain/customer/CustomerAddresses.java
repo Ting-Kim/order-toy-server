@@ -1,6 +1,7 @@
 package com.example.ordertoy.domain.customer;
 
 import java.util.List;
+import java.util.UUID;
 import lombok.Getter;
 
 @Getter
@@ -14,5 +15,12 @@ public class CustomerAddresses {
 
   public static CustomerAddresses from(List<CustomerAddress> customerAddresses) {
     return new CustomerAddresses(customerAddresses);
+  }
+
+  public CustomerAddress findById(UUID id) {
+    return customerAddresses.stream()
+                            .filter(a -> id.equals(a.getId()))
+                            .findAny()
+                            .orElseThrow(IllegalArgumentException::new);
   }
 }

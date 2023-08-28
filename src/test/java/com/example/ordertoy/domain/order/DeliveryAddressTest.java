@@ -13,10 +13,10 @@ class DeliveryAddressTest {
     // given
     DeliveryAddress deliveryAddress1 = DeliveryAddress.of("서울특별시 강서구 목4동 래미안아파트",
                                                          "101동 101호",
-                                                         ZipCode.from("07974"));
+                                                         "07974");
     DeliveryAddress deliveryAddress2 = DeliveryAddress.of("서울특별시 중랑구 면목5동 면목라온프라이빗아파트",
                                                          "101동 101호",
-                                                         ZipCode.from("02225"));
+                                                         "02225");
 
     // when
     String district1 = deliveryAddress1.findDistrict();

@@ -30,4 +30,8 @@ public class Customer {
   public static Customer create(String name) {
     return new Customer(UUID.randomUUID(), name, Membership.create(), CustomerAddresses.from(List.of()));
   }
+
+  public CustomerAddress findAddressById(UUID customerAddressId) {
+    return addresses.findById(customerAddressId);
+  }
 }

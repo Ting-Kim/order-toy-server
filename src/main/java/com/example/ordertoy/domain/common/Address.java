@@ -4,11 +4,10 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 import lombok.Getter;
 
+@Getter
 public abstract class Address {
 
   private UUID id;
-
-  private UUID customerId;
 
   private String content;
 
@@ -23,6 +22,10 @@ public abstract class Address {
     this.content = content;
     this.detail = detail;
     this.zipCode = ZipCode.from(zipCode);
+  }
+
+  public String getZipCodeValue() {
+    return zipCode.getValue();
   }
 
   @Getter
