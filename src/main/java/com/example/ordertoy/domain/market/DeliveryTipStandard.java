@@ -17,8 +17,8 @@ public class DeliveryTipStandard {
     this.deliveryPrice = deliveryPrice;
   }
 
-  public static DeliveryTipStandard of(int distanceMoreThan, int distanceUnder, int deliveryPrice) {
-    return new DeliveryTipStandard(distanceMoreThan, distanceUnder, deliveryPrice);
+  public static DeliveryTipStandard of(int orderPriceMoreThan, int orderPriceUnder, int deliveryPrice) {
+    return new DeliveryTipStandard(orderPriceMoreThan, orderPriceUnder, deliveryPrice);
   }
 
   public static DeliveryTipStandard createDefault(int minimumOrderPrice) {

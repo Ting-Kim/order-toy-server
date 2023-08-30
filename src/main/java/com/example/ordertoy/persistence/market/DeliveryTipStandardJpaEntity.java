@@ -36,20 +36,22 @@ public class DeliveryTipStandardJpaEntity {
   public void createId() {
     this.id = UUID.randomUUID();
   }
+
   private DeliveryTipStandardJpaEntity(
-      UUID id, int orderPriceMoreThan, int orderPriceUnder, int deliveryPrice
+      UUID id, UUID deliveryPolicyId, int orderPriceMoreThan, int orderPriceUnder, int deliveryPrice
   ) {
     this.id = id;
+    this.deliveryPolicyId = deliveryPolicyId;
     this.orderPriceMoreThan = orderPriceMoreThan;
     this.orderPriceUnder = orderPriceUnder;
     this.deliveryPrice = deliveryPrice;
   }
 
-  public static DeliveryTipStandardJpaEntity of(UUID id, int distanceMoreThan, int distanceUnder, int deliveryPrice) {
-    return new DeliveryTipStandardJpaEntity(id, distanceMoreThan, distanceUnder, deliveryPrice);
+  public static DeliveryTipStandardJpaEntity of(UUID id, UUID deliveryPolicyId, int distanceMoreThan, int distanceUnder, int deliveryPrice) {
+    return new DeliveryTipStandardJpaEntity(id, deliveryPolicyId, distanceMoreThan, distanceUnder, deliveryPrice);
   }
 
-  public static DeliveryTipStandardJpaEntity create(int minimumOrderPrice) {
-    return new DeliveryTipStandardJpaEntity(null, minimumOrderPrice, 9999999, 2000);
+  public static DeliveryTipStandardJpaEntity create(UUID deliveryPolicyId, int minimumOrderPrice) {
+    return new DeliveryTipStandardJpaEntity(null, deliveryPolicyId, minimumOrderPrice, 9999999, 2000);
   }
 }
