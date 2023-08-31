@@ -24,6 +24,10 @@ public class DeliveryAddress {
     return new DeliveryAddress(address, detailAddress, ZipCode.from(zipCode));
   }
 
+  public String getZipCodeValue() {
+    return zipCode.getValue();
+  }
+
   public String findDistrict() {
     return address.split(" ")[IDX_DISTRICT_OF_ADDRESS];
   }

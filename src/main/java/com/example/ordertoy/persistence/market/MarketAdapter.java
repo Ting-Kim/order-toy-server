@@ -1,8 +1,6 @@
 package com.example.ordertoy.persistence.market;
 
 import com.example.ordertoy.domain.market.Market;
-import com.example.ordertoy.persistence.customer.CustomerJpaEntity;
-import com.example.ordertoy.persistence.customer.CustomerJpaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +20,6 @@ public class MarketAdapter {
   private final DeliveryPolicyJpaRepository deliveryPolicyRepository;
   private final DeliveryTipStandardJpaRepository deliveryTipStandardRepository;
   private final DeliveryAreaJpaRepository deliveryAreaRepository;
-  private final CustomerJpaRepository customerRepository;
   private final MarketMapper marketMapper;
 
   public Market findById(UUID marketId) {
@@ -48,8 +45,6 @@ public class MarketAdapter {
     List<DeliveryAreaJpaEntity> deliveryAreas = deliveryAreaRepository.findAllById(
         deliveryPolicy.getAvailableDeliveryAreaIds());
 
-    List<CustomerJpaEntity> customers = customerRepository.findAllById(market.getBlackCustomerIds());
-
     return marketMapper.mapToDomain(market,
                                     marketAddress,
                                     foodSales,
@@ -57,7 +52,7 @@ public class MarketAdapter {
                                     deliveryPolicy,
                                     deliveryTipStandards,
                                     deliveryAreas,
-                                    customers);
+                                    market.getBlackCustomerIds());
 
   }
 }

@@ -45,4 +45,12 @@ public class Order {
         market.validateIsAvailableDeliveryAddress(deliveryAddress);
         this.status = OrderStatus.VALIDATED;
     }
+
+    public UUID getCustomerId() {
+        return customer.getId();
+    }
+
+    public UUID getMarketId() {
+        return market.getId();
+    }
 }

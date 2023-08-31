@@ -41,6 +41,17 @@ public class OrderJpaEntity {
   }
 
   public OrderJpaEntity(
+      UUID id, OrderStatus status, UUID customerId, EmbeddableDeliveryAddress deliveryAddress,
+      UUID marketId
+  ) {
+    this.id = id;
+    this.status = status;
+    this.customerId = customerId;
+    this.deliveryAddress = deliveryAddress;
+    this.marketId = marketId;
+  }
+
+  public OrderJpaEntity(
       OrderStatus status, UUID customerId, EmbeddableDeliveryAddress deliveryAddress, UUID marketId
   ) {
     this.status = status;

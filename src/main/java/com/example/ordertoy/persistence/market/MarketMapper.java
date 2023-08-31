@@ -26,7 +26,7 @@ public class MarketMapper {
                      DeliveryPolicyJpaEntity deliveryPolicy,
                      List<DeliveryTipStandardJpaEntity> deliveryTipStandards,
                      List<DeliveryAreaJpaEntity> deliveryAreas,
-                     List<CustomerJpaEntity> customers) {
+                     List<UUID> blackCustomerIds) {
     return Market.of(market.getId(),
                      market.getName(),
                      MarketAddress.of(marketAddress.getId(),
@@ -57,9 +57,7 @@ public class MarketMapper {
                                                     .map(a -> DeliveryArea.of(a.getId(),
                                                                               a.getDistrict()))
                                                     .collect(Collectors.toList())),
-                     BlackCustomers.from(customers.stream()
-                                                  .map(CustomerJpaEntity::getId)
-                                                  .collect(Collectors.toList())));
+                     BlackCustomers.from(blackCustomerIds));
 
   }
 }
