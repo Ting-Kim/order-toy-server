@@ -40,7 +40,7 @@ public class MarketAdapter {
                                 .orElseThrow(EntityNotFoundException::new);
 
     List<DeliveryTipStandardJpaEntity> deliveryTipStandards =
-        deliveryTipStandardRepository.findAllByMarketId(marketId);
+        deliveryTipStandardRepository.findAllByDeliveryPolicyId(deliveryPolicy.getId());
 
     List<DeliveryAreaJpaEntity> deliveryAreas = deliveryAreaRepository.findAllById(
         deliveryPolicy.getAvailableDeliveryAreaIds());

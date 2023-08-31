@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DeliveryTipStandardJpaRepository extends JpaRepository<DeliveryTipStandardJpaEntity, UUID> {
 
-  List<DeliveryTipStandardJpaEntity> findAllByMarketId(UUID marketId);
+  List<DeliveryTipStandardJpaEntity> findAllByDeliveryPolicyId(UUID deliveryPolicyId);
 }

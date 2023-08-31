@@ -8,6 +8,7 @@ import com.example.ordertoy.domain.market.Market;
 import com.example.ordertoy.domain.market.MarketAddress;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +23,7 @@ class OrderTest {
     Customer blackConsumer = Customer.create("Black");
     Market blueChicken = Market.create("파랑통닭", MarketAddress.create("다산로6길 7-10", "101호", "04597"),
                                        Collections.emptyList(), 10000,
-                                       Lists.list(DeliveryArea.from("신정1동")),
+                                       Lists.list(DeliveryArea.of(UUID.randomUUID(), "신정1동")),
                                        BlackCustomers.from(List.of(blackConsumer.getId())));
     Food chicken = Food.create(blueChicken.getId(), "치킨", 18000, 90);
     Food friedPotato = Food.create(blueChicken.getId(), "감자튀김", 5000, 30);
