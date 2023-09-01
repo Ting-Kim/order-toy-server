@@ -26,6 +26,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
 	implementation("org.apache.commons:commons-lang3")
+	implementation("com.mysql:mysql-connector-j")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.projectlombok:lombok")
