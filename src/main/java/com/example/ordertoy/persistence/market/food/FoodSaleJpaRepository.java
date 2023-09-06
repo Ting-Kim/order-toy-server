@@ -1,4 +1,4 @@
-package com.example.ordertoy.persistence.market;
+package com.example.ordertoy.persistence.market.food;
 
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

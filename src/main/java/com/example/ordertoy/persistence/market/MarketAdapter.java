@@ -1,6 +1,16 @@
 package com.example.ordertoy.persistence.market;
 
 import com.example.ordertoy.domain.market.Market;
+import com.example.ordertoy.persistence.market.delivery.DeliveryAreaJpaEntity;
+import com.example.ordertoy.persistence.market.delivery.DeliveryAreaJpaRepository;
+import com.example.ordertoy.persistence.market.delivery.DeliveryPolicyJpaEntity;
+import com.example.ordertoy.persistence.market.delivery.DeliveryPolicyJpaRepository;
+import com.example.ordertoy.persistence.market.delivery.DeliveryTipStandardJpaEntity;
+import com.example.ordertoy.persistence.market.delivery.DeliveryTipStandardJpaRepository;
+import com.example.ordertoy.persistence.market.food.FoodJpaEntity;
+import com.example.ordertoy.persistence.market.food.FoodJpaRepository;
+import com.example.ordertoy.persistence.market.food.FoodSaleJpaEntity;
+import com.example.ordertoy.persistence.market.food.FoodSaleJpaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Map;
@@ -29,10 +39,11 @@ public class MarketAdapter {
         marketAddressRepository.findByMarketId(marketId)
                                .orElseThrow(EntityNotFoundException::new);
     Map<UUID, FoodJpaEntity> foodById = foodRepository.findByMarketId(marketId)
-                                                     .stream()
-                                                     .collect(Collectors.toMap(FoodJpaEntity::getId,
-                                                                               f -> f,
-                                                                               (f1, f2) -> f1));
+                                                      .stream()
+                                                      .collect(
+                                                          Collectors.toMap(FoodJpaEntity::getId,
+                                                                           f -> f,
+                                                                           (f1, f2) -> f1));
     List<FoodSaleJpaEntity> foodSales = foodSaleRepository.findAllById(foodById.keySet());
 
     DeliveryPolicyJpaEntity deliveryPolicy =

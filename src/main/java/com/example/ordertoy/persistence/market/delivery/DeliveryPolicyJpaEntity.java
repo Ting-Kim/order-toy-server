@@ -1,4 +1,4 @@
-package com.example.ordertoy.persistence.market;
+package com.example.ordertoy.persistence.market.delivery;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;

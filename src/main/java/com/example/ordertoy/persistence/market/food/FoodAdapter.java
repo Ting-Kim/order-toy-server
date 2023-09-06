@@ -1,4 +1,4 @@
-package com.example.ordertoy.persistence.market;
+package com.example.ordertoy.persistence.market.food;
 
 import com.example.ordertoy.domain.market.Food;
 import java.util.List;
