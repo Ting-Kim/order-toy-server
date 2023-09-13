@@ -1,7 +1,8 @@
 package com.example.ordertoy.persistence.market;
 
+import com.example.ordertoy.config.converter.UUIDArrayConverter;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -24,7 +25,7 @@ public class MarketJpaEntity {
   @Column(name = "market_name")
   private String name;
 
-  @ElementCollection
+  @Convert(converter = UUIDArrayConverter.class)
   private List<UUID> blackCustomerIds;
 
   private MarketJpaEntity(
