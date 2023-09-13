@@ -58,12 +58,8 @@ public class Market {
   }
 
   public void validateIsAvailableDeliveryAddress(DeliveryAddress deliveryAddress) {
-    if (!isInAvailableDeliveryArea(deliveryAddress)) {
+    if (!deliveryPolicy.isAvailableDelivery(deliveryAddress.findDistrict())) {
       throw new IllegalArgumentException("배달 가능 지역이 아닙니다.");
     }
-  }
-
-  private boolean isInAvailableDeliveryArea(DeliveryAddress deliveryAddress) {
-    return false; // TODO: 구현 필요
   }
 }

@@ -1,7 +1,9 @@
 package com.example.ordertoy.domain.market;
 
 import java.util.UUID;
+import lombok.Getter;
 
+@Getter
 public class DeliveryArea {
 
   private UUID id;

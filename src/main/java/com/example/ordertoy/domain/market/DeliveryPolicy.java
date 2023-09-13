@@ -1,7 +1,9 @@
 package com.example.ordertoy.domain.market;
 
+import com.example.ordertoy.domain.order.DeliveryAddress;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import lombok.Getter;
 
 @Getter
@@ -57,5 +59,11 @@ public class DeliveryPolicy {
     return new DeliveryPolicy(UUID.randomUUID(), marketId, minimumOrderPrice,
                               List.of(DeliveryTipStandard.createDefault(minimumOrderPrice)),
                               deliveryAreas);
+  }
+
+  public boolean isAvailableDelivery(String district) {
+    return availableDeliveryAreas.stream()
+                                 .map(DeliveryArea::getDistrict)
+                                 .anyMatch(district::equals);
   }
 }
