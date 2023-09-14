@@ -26,6 +26,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
 	implementation("org.apache.commons:commons-lang3")
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
 	implementation("com.mysql:mysql-connector-j")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2")
